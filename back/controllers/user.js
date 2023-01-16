@@ -90,4 +90,4 @@ module.exports.login = (req, res, next) => {
         }
     })
     .catch(error => res.statut(500).json({error}));
-  }
+}
