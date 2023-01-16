@@ -1,5 +1,6 @@
 const http = require('http');
 const app = require('./app');
+
 require('dotenv').config();
 
 const SERVER_PORT = 3000;
@@ -56,7 +57,7 @@ server.on('error', serverError);
 server.on('listening', () => {
     const address = server.address();
     const bind = typeof address === 'string' ? 'pipe ' + address : 'port: ' + port;
-    console.log('Listen on ' + bind);
+    console.log('Listening on ' + bind);
 })
 
 server.listen(port);

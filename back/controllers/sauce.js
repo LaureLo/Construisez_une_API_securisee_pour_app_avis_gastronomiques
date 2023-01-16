@@ -37,7 +37,7 @@ module.exports.createSauce = (req, res, next) => {
     const imageUrl = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`;
 
     if (reqSauce.userId !== userId) {
-        res.status(403).json({ message : 'Forbidden' });
+        res.status(403).json({ message : '403: unauthorized request' });
     }
     else {
         delete reqSauce.userId;
@@ -81,7 +81,7 @@ module.exports.modifySauce = (req, res, next) => {
 
         // Verify user identity
         if ( userId !== sauce.userId) {
-            res.status(403).json({ message: 'Forbidden' });
+            res.status(403).json({ message: '403: unauthorized request' });
         }
         else {
             // Delete the old image if it has been replaced
@@ -124,7 +124,7 @@ module.exports.deleteSauce = (req, res, next) => {
 
         // Verify user identity
         if (sauce.userId !== userId) {
-            res.status(403).json({ message: 'Forbidden' });
+            res.status(403).json({ message: '403: unauthorized request' });
         }
         else {            
             const filename = sauce.imageUrl.split('/images/')[1];
@@ -153,7 +153,7 @@ module.exports.modifyLike = (req, res, next) => {
 
     // Verify user identity
     if (user.userId !== req.auth.userId) {
-        res.status(403).json({ message: 'Not Authorized!'})
+        res.status(403).json({ message: '403: unauthorized request'})
     }
     else {
         const sauceId = req.params.id;
@@ -173,7 +173,7 @@ module.exports.modifyLike = (req, res, next) => {
             // Update the sauce in the database
             Sauce.updateOne({ _id: sauceId }, {...updatedSauceLikes, _id: sauceId})
             .then(() => {
-                res.status(200).json({ message: 'Liked Updated'});
+                res.status(200).json({ message: 'Like Updated'});
             })
             .catch(error => {
                 console.log('error' , error)
