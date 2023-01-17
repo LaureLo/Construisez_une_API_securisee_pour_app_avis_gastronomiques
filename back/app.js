@@ -1,4 +1,5 @@
 const express = require('express');
+const helmet = require('helmet');
 const mongoose = require('mongoose');
 const path = require('path');
 
@@ -28,6 +29,8 @@ mongoose.connect(process.env.MONGODB_PATH,
 
 // Express initialization
 const app = express(); 
+
+app.use(helmet());
 
 // Configuring server request access control
 app.use((req, res, next) => {
