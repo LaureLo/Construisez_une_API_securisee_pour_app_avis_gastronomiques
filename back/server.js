@@ -18,7 +18,7 @@ const normalizePort = (val) => {
     else {
         return false;
     }
-}
+};
 
 // Set current port value
 const port = normalizePort(process.env.PORT || SERVER_PORT);
@@ -47,7 +47,7 @@ const serverError = (error) => {
         default:
             throw error;        
     }
-}
+};
 
 // Server creation
 const server = http.createServer(app);
@@ -58,6 +58,6 @@ server.on('listening', () => {
     const address = server.address();
     const bind = typeof address === 'string' ? 'pipe ' + address : 'port: ' + port;
     console.log('Listening on ' + bind);
-})
+});
 
 server.listen(port);

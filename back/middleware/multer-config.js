@@ -36,3 +36,4 @@ const multerFilter = multer({
  }).single('image');
 
 module.exports = multerFilter;
+
