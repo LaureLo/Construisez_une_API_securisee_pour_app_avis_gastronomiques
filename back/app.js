@@ -29,7 +29,11 @@ mongoose.connect(process.env.MONGODB_PATH,
 // Express initialization
 const app = express(); 
 
-app.use(helmet());
+app.use(
+    helmet({
+      crossOriginResourcePolicy: false,
+    })
+  );
 
 // Configuring server request access control
 app.use((req, res, next) => {

@@ -31,7 +31,7 @@ module.exports.signup = (req, res, next) => {
     const emailValidator = /^\w+([\._]?\w)*\w@+([\._]?\w)*\.(\w{2,3})+$/;
 
     if (!checkPassWord(password)) {
-        console.log('mot de pass invalide');
+        console.log('mot de passe invalide');
         res.status(400).json({ message: 'Mot de passe invalide! Le mot de passe comprend entre 8 et 30 caractères, au minimum 1 chiffre, 1 majuscule, 1 minuscule et sans espace' });
     }
     else if (!email.match(emailValidator)) {
