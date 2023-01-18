@@ -1,1 +1,3 @@
-# Construisez_une_API_securisee_pour_app_avis_gastronomiques
+HotTakes
+
+This project was generated with Angular CLI version 13.2.4.
