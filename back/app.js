@@ -2,7 +2,6 @@ const express = require('express');
 const helmet = require('helmet');
 const mongoose = require('mongoose');
 const path = require('path');
-
 const rateLimit = require('express-rate-limit');
 
 const userRoute = require('./routes/user');
