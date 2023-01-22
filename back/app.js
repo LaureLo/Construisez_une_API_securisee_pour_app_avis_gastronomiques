@@ -11,11 +11,12 @@ require("dotenv").config();
 
 // Initializing the Per-User Request Limiter
 limiter = rateLimit({
-    windowMs: 10 * 60 * 1000,
-    max: 50,
+    windowMs: 24 * 60 * 60 * 1000, // 24 hrs in milliseconds
+    max: 100,
+    message: 'You have exceeded the 100 requests in 24 hrs limit!', 
     standardHeaders: true,
-	legacyHeaders: false,
-});
+    legacyHeaders: false,
+  });
 
 //-------------------------
 
