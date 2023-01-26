@@ -1,4 +1,3 @@
-
 const Sauce = require('../models/Sauce');
 const fs = require('fs');
 
@@ -132,7 +131,7 @@ module.exports.deleteSauce = (req, res, next) => {
             // Clear Sauce Image
             fs.unlink(`images/${filename}`, () => {
                 // Delete sauce from database
-                Sauce.deleteOne({ _is: sauceId })
+                Sauce.deleteOne({ _id: sauceId })
                 .then(() => {
                     res.status(200).json({ message : "Sauce deleted" })
                 })
@@ -233,4 +232,3 @@ function isUserPresent(users, curentUserId) {
     }
     return false;
 }
-
